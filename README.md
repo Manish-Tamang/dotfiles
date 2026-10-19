@@ -1,19 +1,16 @@
 ```
- ██████╗  ██████╗ ██╗     ███████╗
-██╔════╝ ██╔═══██╗██║     ██╔════╝
-██║  ███╗██║   ██║██║     █████╗
-██║   ██║██║   ██║██║     ██╔══╝
-╚██████╔╝╚██████╔╝███████╗███████╗
- ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
-        d o t f i l e s
+             _                    _
+  __ _  ___ | | ___  ___ ___   __| | ___  ___
+ / _` |/ _ \| |/ _ \/ __/ _ \ / _` |/ _ \/ __|
+| (_| | (_) | |  __/ (_| (_) | (_| |  __/\__ \
+ \__, |\___/|_|\___|\___\___/ \__,_|\___||___/
+ |___/           d o t f i l e s
 ```
 
 # My dotfiles
 
-This is my personal config backup so that when I nuke a machine or move to a new
-one, I don't have to remember what I had. Everything lives at the repo root by
-topic. **No secrets are committed** — no tokens, cookies, browser profiles,
-SSH/WakaTime keys, or `gh` auth.
+My personal config backup, so when I set up a new machine I don't have to
+remember how I had everything wired up. Organized at the repo root by topic.
 
 ## My setup
 
@@ -40,20 +37,20 @@ SSH/WakaTime keys, or `gh` auth.
 │   ├── .zshrc                # oh-my-zsh + pure + zoxide + fzf + nvm + bun
 │   └── .zprofile             # brew shellenv
 ├── git/
-│   ├── .gitconfig            # auth via gh CLI, no tokens
-│   └── gitignore_global      # my global ignore (~/.config/git/ignore)
+│   ├── .gitconfig
+│   └── gitignore_global
 ├── editors/
 │   ├── vscode-extensions.json
 │   └── cursor-extensions.json
 ├── browser/helium/
-│   └── extensions.json       # id + name + Chrome Web Store URL (list only)
+│   └── extensions.json       # id + name + Chrome Web Store URL
 ├── fonts/jetbrains-mono/     # the .ttf files
 └── seelen-ui/                # Seelen UI settings + my .slu themes
 ```
 
 > The **Brewfile** is the one file to rule them all — it also captured my Windows
 > apps via winget (Figma, OBS, Spotify, MongoDB, Steam, Seelen UI, 1Password…),
-> so it's my "apps I'd otherwise forget" list too.
+> so it doubles as my "apps I'd otherwise forget" list.
 
 ## Fresh machine setup
 
@@ -77,9 +74,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/cust
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --file=Brewfile          # on WSL: installs brew formulae/casks
-# (the winget lines in the Brewfile are for the Windows side — run `brew bundle` from there, or install manually)
+# (the winget lines are for the Windows side — run `brew bundle` from there, or install manually)
 ```
-> `gh auth login` after — my `.gitconfig` uses the gh credential helper, nothing stored.
+Then `gh auth login` to sign in to GitHub.
 
 **3. Editor extensions**
 ```bash
@@ -102,10 +99,5 @@ mkdir -p ~/.local/share/fonts && cp fonts/jetbrains-mono/*.ttf ~/.local/share/fo
 
 ```bash
 brew bundle dump --file=Brewfile --force     # re-capture packages/apps
-code --list-extensions   > /tmp/vsc   # (then reformat to JSON)
+code --list-extensions                       # re-grab editor extensions
 ```
-
-## Not committed on purpose
-
-`~/.wakatime.cfg` (API key), `~/.config/gh` (auth token), browser profile data,
-and anything matching `.gitignore`. These stay on my machine only.
