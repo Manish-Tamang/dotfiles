@@ -1,0 +1,19 @@
+# Never commit secrets / credentials
+.git-credentials
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.env
+.env*
+# Browser profile data (only the extension list is tracked, never the profile)
+**/User Data/
+**/Default/
+*cookies*
+*Login Data*
+*History*
+# Seelen runtime / sensitive
+*clipboard_history*
+# OS cruft
+.DS_Store
+Thumbs.db

@@ -1,0 +1,15 @@
+[
+  "anthropic.claude-code",
+  "astro-build.astro-vscode",
+  "davidanson.vscode-markdownlint",
+  "dsznajder.es7-react-js-snippets",
+  "esbenp.prettier-vscode",
+  "github.github-vscode-theme",
+  "grayjack.monokai-grayjack",
+  "jeronimoekerdt.color-picker-universal",
+  "oven.bun-vscode",
+  "pkief.material-icon-theme",
+  "ritwickdey.liveserver",
+  "tonybaloney.vscode-pets",
+  "wakatime.vscode-wakatime"
+]
