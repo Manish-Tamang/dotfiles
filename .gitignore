@@ -1,5 +1,7 @@
 # Never commit secrets / credentials
 .git-credentials
+.wakatime.cfg
+hosts.yml
 *.pem
 *.key
 id_rsa*

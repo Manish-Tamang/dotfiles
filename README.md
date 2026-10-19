@@ -1,64 +1,111 @@
-# dotfiles
+```
+ ██████╗  ██████╗ ██╗     ███████╗
+██╔════╝ ██╔═══██╗██║     ██╔════╝
+██║  ███╗██║   ██║██║     █████╗
+██║   ██║██║   ██║██║     ██╔══╝
+╚██████╔╝╚██████╔╝███████╗███████╗
+ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
+        d o t f i l e s
+```
 
-Personal config snapshot for quick migration to a new machine. Everything lives
-under [`files/`](files/). This is a **reference + restore** set — no secrets are
-committed (no tokens, cookies, browser profiles, or SSH keys).
+# My dotfiles
 
-Environment: Windows 11 + WSL2 (Ubuntu), zsh.
+This is my personal config backup so that when I nuke a machine or move to a new
+one, I don't have to remember what I had. Everything lives at the repo root by
+topic. **No secrets are committed** — no tokens, cookies, browser profiles,
+SSH/WakaTime keys, or `gh` auth.
 
-## What's here
+## My setup
+
+| Thing | What I use |
+|-------|-----------|
+| OS | Windows 11 + **WSL2 (Ubuntu)** |
+| Shell | **zsh** + [oh-my-zsh](https://ohmyz.sh) |
+| Prompt | **Pure** (`prompt pure`) |
+| Jumping around | **zoxide** (`z`) |
+| Fuzzy finding | **fzf** |
+| Package manager | **Homebrew** (linuxbrew) |
+| Node | **nvm** + **bun** + pnpm/corepack |
+| Editors | VS Code + Cursor |
+| Browser | Helium |
+| Font | JetBrains Mono |
+| Windows desktop | Seelen UI |
+
+## What's in here
 
 ```
-files/
-├── shell/            zsh config
-│   ├── .zshrc
-│   └── .zprofile
+.
+├── Brewfile                  # everything Homebrew knows: brew/cask/vscode/winget/npm
+├── zsh/
+│   ├── .zshrc                # oh-my-zsh + pure + zoxide + fzf + nvm + bun
+│   └── .zprofile             # brew shellenv
 ├── git/
-│   └── .gitconfig
-├── editors/          VS Code + Cursor extension lists (JSON)
+│   ├── .gitconfig            # auth via gh CLI, no tokens
+│   └── gitignore_global      # my global ignore (~/.config/git/ignore)
+├── editors/
 │   ├── vscode-extensions.json
 │   └── cursor-extensions.json
-├── browser/
-│   └── helium/
-│       └── extensions.json   id + name + Chrome Web Store URL
-├── fonts/
-│   └── jetbrains-mono/        JetBrains Mono .ttf files
-└── seelen-ui/        Seelen UI (Windows) settings + themes
-    ├── settings.json
-    ├── settings_shortcuts.json
-    ├── settings_by_app.yml
-    ├── start-layout.json
-    └── themes/*.slu
+├── browser/helium/
+│   └── extensions.json       # id + name + Chrome Web Store URL (list only)
+├── fonts/jetbrains-mono/     # the .ttf files
+└── seelen-ui/                # Seelen UI settings + my .slu themes
 ```
 
-## Restore / migrate
+> The **Brewfile** is the one file to rule them all — it also captured my Windows
+> apps via winget (Figma, OBS, Spotify, MongoDB, Steam, Seelen UI, 1Password…),
+> so it's my "apps I'd otherwise forget" list too.
 
-### Shell + git
+## Fresh machine setup
+
 ```bash
-cp files/shell/.zshrc files/shell/.zprofile ~/
-cp files/git/.gitconfig ~/
+git clone https://github.com/Manish-Tamang/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
-> `.gitconfig` uses the GitHub CLI (`gh auth git-credential`) for auth — run
-> `gh auth login` on the new machine; no tokens are stored in the repo.
 
-### VS Code / Cursor extensions
+**1. Shell + git**
 ```bash
-# VS Code
-cat files/editors/vscode-extensions.json | python3 -c 'import json,sys;print("\n".join(json.load(sys.stdin)))' | xargs -L1 code --install-extension
-# Cursor
-cat files/editors/cursor-extensions.json | python3 -c 'import json,sys;print("\n".join(json.load(sys.stdin)))' | xargs -L1 cursor --install-extension
+cp zsh/.zshrc zsh/.zprofile ~/
+mkdir -p ~/.config/git
+cp git/.gitconfig ~/
+cp git/gitignore_global ~/.config/git/ignore
+# oh-my-zsh + the pieces I use
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
-### Helium browser extensions
-`files/browser/helium/extensions.json` lists each extension with its Chrome Web
-Store URL — open each `webstore` link and install. (Only the list is tracked;
-the browser profile is never committed.)
+**2. Everything from Homebrew (incl. pure, fzf, zoxide, bun, nvm)**
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --file=Brewfile          # on WSL: installs brew formulae/casks
+# (the winget lines in the Brewfile are for the Windows side — run `brew bundle` from there, or install manually)
+```
+> `gh auth login` after — my `.gitconfig` uses the gh credential helper, nothing stored.
 
-### Fonts
-Install the `.ttf` files in `files/fonts/jetbrains-mono/`:
-- **Windows:** select all → right-click → *Install for all users*.
-- **Linux:** `mkdir -p ~/.local/share/fonts && cp files/fonts/jetbrains-mono/*.ttf ~/.local/share/fonts/ && fc-cache -f`
+**3. Editor extensions**
+```bash
+python3 -c 'import json;print("\n".join(json.load(open("editors/vscode-extensions.json"))))' | xargs -L1 code --install-extension
+python3 -c 'import json;print("\n".join(json.load(open("editors/cursor-extensions.json"))))' | xargs -L1 cursor --install-extension
+```
 
-### Seelen UI (Windows)
-Copy the settings back into `%AppData%\com.seelen.seelen-ui\` and the `.slu`
-theme files into its `themes\` folder, then restart Seelen UI.
+**4. Fonts**
+```bash
+# Linux
+mkdir -p ~/.local/share/fonts && cp fonts/jetbrains-mono/*.ttf ~/.local/share/fonts/ && fc-cache -f
+# Windows: select the .ttf files → right-click → Install for all users
+```
+
+**5. Helium extensions** — open each `webstore` URL in `browser/helium/extensions.json` and install.
+
+**6. Seelen UI (Windows)** — copy `seelen-ui/*` into `%AppData%\com.seelen.seelen-ui\` and the `.slu` files into its `themes\` folder, then restart Seelen.
+
+## Refreshing this repo later
+
+```bash
+brew bundle dump --file=Brewfile --force     # re-capture packages/apps
+code --list-extensions   > /tmp/vsc   # (then reformat to JSON)
+```
+
+## Not committed on purpose
+
+`~/.wakatime.cfg` (API key), `~/.config/gh` (auth token), browser profile data,
+and anything matching `.gitignore`. These stay on my machine only.
