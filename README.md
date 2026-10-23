@@ -25,6 +25,7 @@ remember how I had everything wired up. Organized at the repo root by topic.
 | Node | **nvm** + **bun** + pnpm/corepack |
 | Editors | VS Code + Cursor |
 | Browser | Helium + [Minimal YouTube](https://github.com/Manish-Tamang/minimal-youtube) |
+| Terminal | Windows Terminal (GitHub Dark + JetBrains Mono, opens into WSL) |
 | Font | JetBrains Mono |
 | Windows desktop | Seelen UI |
 | Windows notch | [Nusa](https://rama2555.github.io/nusa/) (native app) |
@@ -44,6 +45,8 @@ remember how I had everything wired up. Organized at the repo root by topic.
 │   ├── vscode-settings.json      # VS Code user settings (classic flat UI, no API keys)
 │   ├── vscode-extensions.json
 │   └── cursor-extensions.json
+├── terminal/
+│   └── windows-terminal.json     # Windows Terminal settings (GitHub Dark scheme, Ubuntu default)
 ├── browser/helium/
 │   └── extensions.json       # id + name + Chrome Web Store URL (+ unpacked GitHub ones)
 ├── fonts/jetbrains-mono/     # the .ttf files
@@ -97,6 +100,10 @@ panels so it looks flat and seamless like Cursor.
 mkdir -p ~/.local/share/fonts && cp fonts/jetbrains-mono/*.ttf ~/.local/share/fonts/ && fc-cache -f
 # Windows: select the .ttf files → right-click → Install for all users
 ```
+
+**Windows Terminal** — copy `terminal/windows-terminal.json` to
+`%LocalAppData%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`. If the Ubuntu profile
+has a different GUID on the new machine, set `defaultProfile` (and the Ubuntu entry's font/scheme) to the new one.
 
 **5. Helium extensions** — open each `webstore` URL in `browser/helium/extensions.json` and install.
 

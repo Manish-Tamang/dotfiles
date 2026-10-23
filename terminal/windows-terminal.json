@@ -1,0 +1,103 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{76f7da3a-c332-5917-97e7-f23eee8c4fe8}",
+    "keybindings": [
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu": [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": {
+        "defaults": {
+            "colorScheme": "GitHub Dark",
+            "font": {
+                "face": "JetBrains Mono",
+                "size": 12
+            }
+        },
+        "list": [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{7f7af453-bb4b-50a3-ac1d-f3dcc477fb28}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{76f7da3a-c332-5917-97e7-f23eee8c4fe8}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL",
+                "colorScheme": "GitHub Dark",
+                "font": {
+                    "face": "JetBrains Mono",
+                    "size": 12
+                }
+            }
+        ]
+    },
+    "schemes": [
+        {
+            "name": "GitHub Dark",
+            "background": "#24292E",
+            "foreground": "#E1E4E8",
+            "cursorColor": "#C8E1FF",
+            "selectionBackground": "#284566",
+            "black": "#586069",
+            "red": "#EA4A5A",
+            "green": "#34D058",
+            "yellow": "#FFEA7F",
+            "blue": "#2188FF",
+            "purple": "#B392F0",
+            "cyan": "#39C5CF",
+            "white": "#D1D5DA",
+            "brightBlack": "#959DA5",
+            "brightRed": "#F97583",
+            "brightGreen": "#85E89D",
+            "brightYellow": "#FFEA7F",
+            "brightBlue": "#79B8FF",
+            "brightPurple": "#B392F0",
+            "brightCyan": "#56D4DD",
+            "brightWhite": "#FAFBFC"
+        }
+    ],
+    "themes": []
+}
