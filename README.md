@@ -46,7 +46,9 @@ remember how I had everything wired up. Organized at the repo root by topic.
 ├── browser/helium/
 │   └── extensions.json       # id + name + Chrome Web Store URL (+ unpacked GitHub ones)
 ├── fonts/jetbrains-mono/     # the .ttf files
-└── seelen-ui/                # Seelen UI settings + my .slu themes
+├── seelen-ui/                # Seelen UI settings + my .slu themes
+└── nusa/
+    └── water.txt             # Nusa's water reminder (bottle, goal, reminder hours)
 ```
 
 > The **Brewfile** is the one file to rule them all — it also captured my Windows
@@ -101,11 +103,14 @@ unzip it to a folder you'll keep, open `chrome://extensions`, turn on **Develope
 **6. Seelen UI (Windows)** — copy `seelen-ui/*` into `%AppData%\com.seelen.seelen-ui\` and the `.slu` files into its `themes\` folder, then restart Seelen.
 
 **7. Nusa (native Windows app)** — not on winget, so grab [`NusaSetup.zip`](https://github.com/rama2555/nusa/releases/latest/download/NusaSetup.zip)
-from the [Nusa site](https://rama2555.github.io/nusa/), unzip and run the installer.
+from the [Nusa site](https://rama2555.github.io/nusa/), unzip and run the installer. Then copy `nusa/water.txt` into
+`%AppData%\Nusa\` and restart Nusa. That file is its only config (500 ml bottle, 2000 ml goal, reminders 08:00–17:00);
+the file shelf lives in `%LocalAppData%\Nusa\Shelf\` and isn't backed up.
 
 ## Refreshing this repo later
 
 ```bash
 brew bundle dump --file=Brewfile --force     # re-capture packages/apps
 code --list-extensions                       # re-grab editor extensions
+cp /mnt/c/Users/ACER/AppData/Roaming/Nusa/water.txt nusa/   # re-grab Nusa config (from WSL)
 ```
