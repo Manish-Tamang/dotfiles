@@ -27,7 +27,7 @@ remember how I had everything wired up. Organized at the repo root by topic.
 | Browser | Helium + [Minimal YouTube](https://github.com/Manish-Tamang/minimal-youtube) |
 | Font | JetBrains Mono |
 | Windows desktop | Seelen UI |
-| Notch | [Nusa](https://rama2555.github.io/nusa/) |
+| Windows notch | [Nusa](https://rama2555.github.io/nusa/) (native app) |
 
 ## What's in here
 
@@ -100,7 +100,7 @@ unzip it to a folder you'll keep, open `chrome://extensions`, turn on **Develope
 
 **6. Seelen UI (Windows)** — copy `seelen-ui/*` into `%AppData%\com.seelen.seelen-ui\` and the `.slu` files into its `themes\` folder, then restart Seelen.
 
-**7. Nusa notch (Windows)** — grab [`NusaSetup.zip`](https://github.com/rama2555/nusa/releases/latest/download/NusaSetup.zip)
+**7. Nusa (native Windows app)** — not on winget, so grab [`NusaSetup.zip`](https://github.com/rama2555/nusa/releases/latest/download/NusaSetup.zip)
 from the [Nusa site](https://rama2555.github.io/nusa/), unzip and run the installer.
 
 ## Refreshing this repo later
