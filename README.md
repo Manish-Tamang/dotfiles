@@ -39,7 +39,8 @@ remember how I had everything wired up. Organized at the repo root by topic.
 │   ├── .zshrc                # oh-my-zsh + pure + zoxide + fzf + nvm + bun
 │   └── .zprofile             # brew shellenv
 ├── git/
-│   ├── .gitconfig
+│   ├── .gitconfig            # SSH commit signing via 1Password
+│   ├── allowed_signers       # lets `git log --show-signature` verify my commits
 │   └── gitignore_global
 ├── editors/
 │   ├── vscode-settings.json      # VS Code user settings (classic flat UI, no API keys)
@@ -72,6 +73,7 @@ cp zsh/.zshrc zsh/.zprofile ~/
 mkdir -p ~/.config/git
 cp git/.gitconfig ~/
 cp git/gitignore_global ~/.config/git/ignore
+cp git/allowed_signers ~/.config/git/allowed_signers
 # oh-my-zsh + the pieces I use
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -84,6 +86,11 @@ brew bundle --file=Brewfile          # on WSL: installs brew formulae/casks
 # (the winget lines are for the Windows side — run `brew bundle` from there, or install manually)
 ```
 Then `gh auth login` to sign in to GitHub.
+
+**Commit signing:** commits are signed with my SSH key from 1Password. Turn on **1Password → Settings → Developer →
+Use the SSH agent** (plus Windows Hello unlock), and the `.gitconfig` above does the rest: it signs through 1Password's
+`op-ssh-sign-wsl.exe` and uses Windows `ssh.exe` so WSL talks to the 1Password agent. On a new key, update
+`user.signingkey` and `allowed_signers`, and add the key on GitHub as both an Authentication and a Signing key.
 
 **3. Editor extensions**
 ```bash

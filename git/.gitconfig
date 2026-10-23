@@ -1,6 +1,7 @@
 [user]
 	name = Manish-Tamang
 	email = maneshtamang833@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIU5FLL5wJ+xi/5mtT/76NY6PK1kwglbBT0r6c2/jw+
 [init]
 	defaultBranch = main
 [color]
@@ -11,3 +12,14 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /mnt/c/Users/ACER/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe
+	allowedSignersFile = ~/.config/git/allowed_signers
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[core]
+	sshCommand = ssh.exe
