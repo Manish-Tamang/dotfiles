@@ -41,6 +41,7 @@ remember how I had everything wired up. Organized at the repo root by topic.
 │   ├── .gitconfig
 │   └── gitignore_global
 ├── editors/
+│   ├── vscode-settings.json      # VS Code user settings (classic flat UI, no API keys)
 │   ├── vscode-extensions.json
 │   └── cursor-extensions.json
 ├── browser/helium/
@@ -86,6 +87,9 @@ Then `gh auth login` to sign in to GitHub.
 python3 -c 'import json;print("\n".join(json.load(open("editors/vscode-extensions.json"))))' | xargs -L1 code --install-extension
 python3 -c 'import json;print("\n".join(json.load(open("editors/cursor-extensions.json"))))' | xargs -L1 cursor --install-extension
 ```
+Then copy `editors/vscode-settings.json` to `%AppData%\Code\User\settings.json` and re-add your WakaTime key
+(it's kept out of the repo). It sets `workbench.experimental.modernUI: false`, which turns off VS Code's floating rounded
+panels so it looks flat and seamless like Cursor.
 
 **4. Fonts**
 ```bash

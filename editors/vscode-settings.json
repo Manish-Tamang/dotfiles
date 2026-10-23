@@ -1,0 +1,41 @@
+{
+    "wakatime.apiUrl": "https://api.wakatime.com/api/v1",
+    "workbench.colorTheme": "GitHub Dark",
+    "vscodeGitCommit.variables": {
+        "prefix": "keke"
+    },
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        ".claude/rules": true,
+        "~/.copilot/instructions": true,
+        "~/.claude/rules": true
+    },
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "debug.disassemblyView.showSourceCode": false,
+    "remote.autoForwardPortsSource": "hybrid",
+    "workbench.activityBar.location": "top",
+    "workbench.experimental.modernUI": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "window.commandCenter": false,
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.hideOnboarding": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.menuBarVisibility": "compact",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.watcherExclude": {
+        "**/.next/**": true,
+        "**/node_modules/**": true
+    },
+    "search.exclude": {
+        "**/.next": true
+    }
+}
