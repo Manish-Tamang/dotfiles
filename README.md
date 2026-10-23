@@ -24,9 +24,10 @@ remember how I had everything wired up. Organized at the repo root by topic.
 | Package manager | **Homebrew** (linuxbrew) |
 | Node | **nvm** + **bun** + pnpm/corepack |
 | Editors | VS Code + Cursor |
-| Browser | Helium |
+| Browser | Helium + [Minimal YouTube](https://github.com/Manish-Tamang/minimal-youtube) |
 | Font | JetBrains Mono |
 | Windows desktop | Seelen UI |
+| Notch | [Nusa](https://rama2555.github.io/nusa/) |
 
 ## What's in here
 
@@ -43,7 +44,7 @@ remember how I had everything wired up. Organized at the repo root by topic.
 │   ├── vscode-extensions.json
 │   └── cursor-extensions.json
 ├── browser/helium/
-│   └── extensions.json       # id + name + Chrome Web Store URL
+│   └── extensions.json       # id + name + Chrome Web Store URL (+ unpacked GitHub ones)
 ├── fonts/jetbrains-mono/     # the .ttf files
 └── seelen-ui/                # Seelen UI settings + my .slu themes
 ```
@@ -93,7 +94,14 @@ mkdir -p ~/.local/share/fonts && cp fonts/jetbrains-mono/*.ttf ~/.local/share/fo
 
 **5. Helium extensions** — open each `webstore` URL in `browser/helium/extensions.json` and install.
 
+[Minimal YouTube](https://github.com/Manish-Tamang/minimal-youtube) isn't on the Web Store, so load it unpacked:
+download `minimal-youtube-vX.Y.Z.zip` from the [latest release](https://github.com/Manish-Tamang/minimal-youtube/releases/latest),
+unzip it to a folder you'll keep, open `chrome://extensions`, turn on **Developer mode** → **Load unpacked** → pick the folder.
+
 **6. Seelen UI (Windows)** — copy `seelen-ui/*` into `%AppData%\com.seelen.seelen-ui\` and the `.slu` files into its `themes\` folder, then restart Seelen.
+
+**7. Nusa notch (Windows)** — grab [`NusaSetup.zip`](https://github.com/rama2555/nusa/releases/latest/download/NusaSetup.zip)
+from the [Nusa site](https://rama2555.github.io/nusa/), unzip and run the installer.
 
 ## Refreshing this repo later
 

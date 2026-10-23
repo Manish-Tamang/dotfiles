@@ -118,5 +118,10 @@
     "id": "oighgmkmcofpknggipldbmihbjblkgia",
     "name": "Save Image As",
     "webstore": "https://chromewebstore.google.com/detail/oighgmkmcofpknggipldbmihbjblkgia"
+  },
+  {
+    "name": "Minimal YouTube",
+    "github": "https://github.com/Manish-Tamang/minimal-youtube",
+    "install": "unpacked: download the zip from https://github.com/Manish-Tamang/minimal-youtube/releases/latest, unzip it to a folder you keep, then Load unpacked in chrome://extensions"
   }
 ]
