@@ -12,6 +12,8 @@
 My personal config backup, so when I set up a new machine I don't have to
 remember how I had everything wired up. Organized at the repo root by topic.
 
+![Windows Terminal running zsh in WSL, with the Nusa notch and Seelen UI dock](screenshot.webp)
+
 ## My setup
 
 | Thing | What I use |
@@ -34,6 +36,7 @@ remember how I had everything wired up. Organized at the repo root by topic.
 
 ```
 .
+├── screenshot.webp           # the setup (also on manishtamang.com/uses)
 ├── Brewfile                  # everything Homebrew knows: brew/cask/vscode/winget/npm
 ├── zsh/
 │   ├── .zshrc                # oh-my-zsh + pure + zoxide + fzf + nvm + bun
